@@ -22,4 +22,3 @@ accuracy = accuracy_score(y_test, y_pred)
 
 
 print(f'Model Accuracy: {accuracy:.4f}')
-

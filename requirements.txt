@@ -1,4 +1,8 @@
 numpy
 pandas
 requests
+<<<<<<< HEAD
 scikit-learn
+=======
+pytest
+>>>>>>> logistc

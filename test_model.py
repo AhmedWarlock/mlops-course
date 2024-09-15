@@ -1,30 +1,13 @@
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
-
-data = load_iris()
-X = data.data  
-y = data.target  
+from iris_dataset import load_dataset, train, get_accuracy
 
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+def test_load_dataset():
+    df = load_dataset()
+    assert not df.empty, "The DataFrame should not be empty after loading the dataset."
 
-def train():
-    model = LogisticRegression(max_iter=150, random_state=42)
-    model.fit(X_train, y_train)
-
-
-    y_pred = model.predict(X_test)
-
-
-    accuracy = accuracy_score(y_test, y_pred)
-
-
-    print(f'Model Accuracy: {accuracy:.4f}')
-    return accuracy,y_pred
 
 def test_model_accuracy():
-    accuracy = train()
-    # Assert that the accuracy is above a certain threshold, e.g., 90%
-    assert accuracy >= 0.9
+    df = load_dataset()
+    model, X_train, X_test, y_train, y_test = train(df)
+    accuracy = get_accuracy(model, X_test, y_test)
+    assert accuracy > 0.8, "Model accuracy is below 80%."

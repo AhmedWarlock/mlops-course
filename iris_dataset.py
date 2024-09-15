@@ -23,3 +23,14 @@ accuracy = accuracy_score(y_test, y_pred)
 
 print(f'Model Accuracy: {accuracy:.4f}')
 
+
+
+y_pred = model.predict(X_test)
+conf_matrix = confusion_matrix(y_test, y_pred)
+disp = ConfusionMatrixDisplay(confusion_matrix=conf_matrix, display_labels=data.target_names)
+
+plt.figure(figsize=(8, 6))
+disp.plot(cmap=plt.cm.Blues)
+plt.title('Confusion Matrix')
+plt.show()
+

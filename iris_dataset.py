@@ -73,6 +73,6 @@ if __name__ == "__main__":
     accuracy = get_accuracy(model, X_test, y_test)
     print(f"Accuracy: {accuracy:.2f}")
 
-    plot_feature(iris_df, "sepal length (cm)")
-    plot_features(iris_df)
-    plot_model(model, X_test, y_test)
+    # plot_feature(iris_df, "sepal length (cm)")
+    # plot_features(iris_df)
+    # plot_model(model, X_test, y_test)
